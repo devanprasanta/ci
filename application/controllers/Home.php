@@ -20,6 +20,11 @@ class hash(algo, data)ome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->model('biodata');
+		$data['biodata_array']=$this->biodata->getBiodataQueryArray();
+		$data['biodata_object']=$this->biodata->getBiodataQueryObject();
+		$data['biodatabuilder_array']=$this->biodata->getBiodataBuilderArray();
+		$data['biodatabuilder_object']=$this->biodata->getBiodataBuilderObject();
+		$this->load->view('home',$data);
 	}
 }
